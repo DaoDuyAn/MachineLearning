@@ -15,7 +15,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random
 # Feature Scaling
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
-print(X_train)
 X_test = sc_X.transform(X_test)
 
 # fitting decision tree classifier to the training set
@@ -24,7 +23,8 @@ classifier.fit(X_train, y_train)
 
 # predict test set result
 y_pred = classifier.predict(X_test)
-# print(y_test)
-# print(y_pred)
-print(accuracy_score(y_test, y_pred, normalize=False))
-print(round(accuracy_score(y_test, y_pred)*100, 2))
+print('Số lượng mẫu dự đoán chính xác: ', accuracy_score(y_test, y_pred, normalize=False))
+print('Số lượng mẫu kiểm thử : ', len(y_test))
+print('Độ chính xác: ', round(accuracy_score(y_test, y_pred)*100, 2), '%')
+
+
